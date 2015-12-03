@@ -5,6 +5,7 @@ module WalmartOpen
     class Feed < Request
       TYPES = [
         :preorder,
+        :items,
         :bestsellers,
         :rollback,
         :clearance,

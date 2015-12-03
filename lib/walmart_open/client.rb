@@ -4,6 +4,7 @@ require "walmart_open/requests/search"
 require "walmart_open/requests/lookup"
 require "walmart_open/requests/taxonomy"
 require "walmart_open/requests/feed"
+require "walmart_open/requests/paginated"
 
 module WalmartOpen
   class Client
@@ -27,6 +28,10 @@ module WalmartOpen
 
     def taxonomy
       connection.request(Requests::Taxonomy.new)
+    end
+
+    def paginated(params = {})
+      connection.request(Requests::Paginated.new(params))
     end
 
     def feed(type, category_id = nil)
